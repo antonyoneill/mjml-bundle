@@ -35,19 +35,19 @@ class Mjml
      */
     public function render($mjmlContent)
     {
+        $tmpfname = tempnam(sys_get_temp_dir(), 'mjmloutput');
+
         $builder = new ProcessBuilder();
+        
         $builder->setPrefix($this->bin);
         $builder->setArguments([
-            '-i',
-            '-s',
-            '-l',
-            'strict',
-        ]);
+                                   '-i',
+                                   '-o' . $tmpfname,
+                               ]);
 
         if ($this->mimify) {
             $builder->add('-m');
         }
-
         $builder->setInput($mjmlContent);
 
         $process = $builder->getProcess();
@@ -67,6 +67,10 @@ class Mjml
             ));
         }
 
-        return $process->getOutput();
+        $renderedHtml = file_get_contents($tmpfname);
+
+        unlink($tmpfname);
+
+        return $renderedHtml;
     }
 }
