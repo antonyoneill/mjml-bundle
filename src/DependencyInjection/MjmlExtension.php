@@ -10,15 +10,7 @@ use Symfony\Component\Config\FileLocator;
 class MjmlExtension extends Extension
 {
     /**
-     * Loads the Swift Mailer configuration.
-     *
-     * Usage example:
-     *
-     *      <swiftmailer:config transport="gmail">
-     *        <swiftmailer:username>fabien</swift:username>
-     *        <swiftmailer:password>xxxxx</swift:password>
-     *        <swiftmailer:spool path="/path/to/spool/" />
-     *      </swiftmailer:config>
+     * Loads the MJML Bundle configuration.
      *
      * @param array            $configs   An array of configuration settings
      * @param ContainerBuilder $container A ContainerBuilder instance
@@ -33,6 +25,7 @@ class MjmlExtension extends Extension
 
         $container->setParameter('notfloran_mjml.bin', $config['bin']);
         $container->setParameter('notfloran_mjml.mimify', $config['mimify']);
+        $container->setParameter('notfloran_mjml.useFile', $config['useFile']);
     }
 
 }

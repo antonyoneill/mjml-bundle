@@ -8,6 +8,7 @@ services:
         arguments:
             - "%notfloran_mjml.bin%"
             - "%notfloran_mjml.mimify%"
+            - "%notfloran_mjml.useFile%"
 
     notfloran_mjml.twig_extension:
         class: NotFloran\MjmlBundle\Twig\Extension

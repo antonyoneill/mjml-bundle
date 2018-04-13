@@ -44,6 +44,7 @@ Example:
 mjml:
     bin: "%kernel.root_dir%/../node_modules/.bin/mjml" # default:  mjml
     mimify: true # default: false
+    useFile: true # default: false
 ```
 
 ## Usage

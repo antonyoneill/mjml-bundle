@@ -21,8 +21,9 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('bin')->defaultValue(function () use ($finder) { return $finder->find('mjml'); })->end()
+                ->variableNode('bin')->defaultValue(function () use ($finder) { return $finder->find('mjml'); })->end()
                 ->booleanNode('mimify')->defaultFalse()->end()
+                ->booleanNode('useFile')->defaultFalse()->end()
             ->end()
         ;
 
