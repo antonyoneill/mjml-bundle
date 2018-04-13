@@ -107,7 +107,7 @@ class Mjml
         $builder->setArguments([
                                    '-i',
                                    '-o' . $tmpfname,
-                               ]);
+        ]);
 
         if ($this->mimify) {
             $builder->add('-m');
@@ -120,15 +120,15 @@ class Mjml
         // executes after the command finishes
         if (!$process->isSuccessful()) {
             throw new \RuntimeException(sprintf(
-                                            'The exit status code \'%s\' says something went wrong:'."\n"
-                                            .'stderr: "%s"'."\n"
-                                            .'stdout: "%s"'."\n"
-                                            .'command: %s.',
-                                            $process->getStatus(),
-                                            $process->getErrorOutput(),
-                                            $process->getOutput(),
-                                            $process->getCommandLine()
-                                        ));
+                'The exit status code \'%s\' says something went wrong:'."\n"
+                .'stderr: "%s"'."\n"
+                .'stdout: "%s"'."\n"
+                .'command: %s.',
+                $process->getStatus(),
+                $process->getErrorOutput(),
+                $process->getOutput(),
+                $process->getCommandLine()
+            ));
         }
 
         $renderedHtml = file_get_contents($tmpfname);
