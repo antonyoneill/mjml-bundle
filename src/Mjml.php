@@ -66,7 +66,7 @@ class Mjml
         ]);
 
         if ($this->mimify) {
-            $builder->add('-m');
+            $builder->add('--config.minify');
         }
 
         $builder->setInput($mjmlContent);
@@ -110,7 +110,7 @@ class Mjml
         ]);
 
         if ($this->mimify) {
-            $builder->add('-m');
+            $builder->add('--config.minify');
         }
         $builder->setInput($mjmlContent);
 
